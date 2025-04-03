@@ -1,0 +1,3 @@
+Go to testForSmartscan_Data > StreamingAssets > Texts folder. Txt files are placed here. Currently, the script only tries to find "example.txt".
+If it can't find it for whatever reason, it will display an error message.
+Restart game to make changes.

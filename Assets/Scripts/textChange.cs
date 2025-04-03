@@ -7,10 +7,12 @@ using Unity.VisualScripting;
 
 public class textChange : MonoBehaviour
 {
-
+    
+    //references the texts from the scene.
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI screenText;
 
+    //string of path file
     private string filePath = Path.Combine(Application.streamingAssetsPath, "Texts", "example.txt");
 
 
@@ -18,6 +20,7 @@ public class textChange : MonoBehaviour
     void Start()
     {
 
+        //change text based on what is returned by textinator()
         screenText.text = textinator();
         
     }
@@ -26,12 +29,14 @@ public class textChange : MonoBehaviour
     {
         string failedMsg = "No txt file available";
 
+        //checks if folder stated in file path exists or not
         if(File.Exists(filePath))
         {
+            //read all text in txt file
             string readTxt = File.ReadAllText(filePath);
-
-            Debug.Log("Found txt file, contents read as: " + readTxt);
-            titleText.text = displayText(true);
+            
+            titleText.text = displayText(true); //change display text based on the return data of displayText()
+            Debug.Log("Found txt file, contents read as: " + readTxt); //console log message
             return readTxt;
         }
         else 
@@ -42,6 +47,7 @@ public class textChange : MonoBehaviour
         }
     }
 
+    //function that returns a certain string depending on the bool parameter
     private string displayText(bool isTrue)
     {
         if (isTrue)
